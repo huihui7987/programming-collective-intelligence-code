@@ -1,22 +1,52 @@
 # A dictionary of movie critics and their ratings of a small
 # set of movies
-critics={'Lisa Rose': {'Lady in the Water': 2.5, 'Snakes on a Plane': 3.5,
- 'Just My Luck': 3.0, 'Superman Returns': 3.5, 'You, Me and Dupree': 2.5, 
- 'The Night Listener': 3.0},
-'Gene Seymour': {'Lady in the Water': 3.0, 'Snakes on a Plane': 3.5, 
- 'Just My Luck': 1.5, 'Superman Returns': 5.0, 'The Night Listener': 3.0, 
- 'You, Me and Dupree': 3.5}, 
-'Michael Phillips': {'Lady in the Water': 2.5, 'Snakes on a Plane': 3.0,
- 'Superman Returns': 3.5, 'The Night Listener': 4.0},
-'Claudia Puig': {'Snakes on a Plane': 3.5, 'Just My Luck': 3.0,
- 'The Night Listener': 4.5, 'Superman Returns': 4.0, 
- 'You, Me and Dupree': 2.5},
-'Mick LaSalle': {'Lady in the Water': 3.0, 'Snakes on a Plane': 4.0, 
- 'Just My Luck': 2.0, 'Superman Returns': 3.0, 'The Night Listener': 3.0,
- 'You, Me and Dupree': 2.0}, 
-'Jack Matthews': {'Lady in the Water': 3.0, 'Snakes on a Plane': 4.0,
- 'The Night Listener': 3.0, 'Superman Returns': 5.0, 'You, Me and Dupree': 3.5},
-'Toby': {'Snakes on a Plane':4.5,'You, Me and Dupree':1.0,'Superman Returns':4.0}}
+critics={
+	'Lisa Rose': 
+		{'Lady in the Water': 2.5, 
+		 'Snakes on a Plane': 3.5,
+		 'Just My Luck': 3.0, 
+		 'Superman Returns': 3.5, 
+		 'You, Me and Dupree': 2.5, 
+		 'The Night Listener': 3.0},
+	'Gene Seymour': 
+		{'Lady in the Water': 3.0, 
+		 'Snakes on a Plane': 3.5, 
+ 		 'Just My Luck': 1.5, 
+ 		 'Superman Returns': 5.0, 
+ 		 'The Night Listener': 3.0, 
+		 'You, Me and Dupree': 3.5},
+		 
+	'Michael Phillips': 
+		{'Lady in the Water': 2.5, 
+		 'Snakes on a Plane': 3.0,
+		 'Superman Returns': 3.5, 
+		 'The Night Listener': 4.0},
+	'Claudia Puig': 
+		{'Snakes on a Plane': 3.5, 
+		 'Just My Luck': 3.0,
+		 'The Night Listener': 4.5, 
+		 'Superman Returns': 4.0, 
+		 'You, Me and Dupree': 2.5},
+		 
+	'Mick LaSalle': 
+		{'Lady in the Water': 3.0, 
+		 'Snakes on a Plane': 4.0, 
+		 'Just My Luck': 2.0, 
+		 'Superman Returns': 3.0, 
+		 'The Night Listener': 3.0,
+		 'You, Me and Dupree': 2.0}, 
+	'Jack Matthews': 
+		{'Lady in the Water': 3.0, 
+		 'Snakes on a Plane': 4.0,
+	 	 'The Night Listener': 3.0, 
+	 	 'Superman Returns': 5.0, 
+	 	 'You, Me and Dupree': 3.5},
+	'Toby': {'Snakes on a Plane':4.5,
+		 'You, Me and Dupree':1.0,
+		 'Superman Returns':4.0}
+		 
+		 
+	}
 
 
 from math import sqrt
@@ -37,8 +67,10 @@ def sim_distance(prefs,person1,person2):
                       for item in prefs[person1] if item in prefs[person2]])
 
   return 1/(1+sum_of_squares)
+  
 
-'''
+
+
 
 # Returns the Pearson correlation coefficient for p1 and p2
 def sim_pearson(prefs,p1,p2):
@@ -81,7 +113,9 @@ def topMatches(prefs,person,n=5,similarity=sim_pearson):
   scores.sort()
   scores.reverse()
   return scores[0:n]
-
+  
+  
+'''
 # Gets recommendations for a person by using a weighted average
 # of every other user's rankings
 def getRecommendations(prefs,person,similarity=sim_pearson):
