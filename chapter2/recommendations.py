@@ -20,6 +20,7 @@ critics={'Lisa Rose': {'Lady in the Water': 2.5, 'Snakes on a Plane': 3.5,
 
 
 from math import sqrt
+from imp import reload
 
 # Returns a distance-based similarity score for person1 and person2
 def sim_distance(prefs,person1,person2):
@@ -36,6 +37,8 @@ def sim_distance(prefs,person1,person2):
                       for item in prefs[person1] if item in prefs[person2]])
 
   return 1/(1+sum_of_squares)
+
+'''
 
 # Returns the Pearson correlation coefficient for p1 and p2
 def sim_pearson(prefs,p1,p2):
@@ -178,3 +181,5 @@ def loadMovieLens(path='/data/movielens'):
     prefs.setdefault(user,{})
     prefs[user][movies[movieid]]=float(rating)
   return prefs
+  
+  '''

@@ -1,0 +1,7 @@
+>>> import recommendations
+>>> from recommendations import sim_distance
+>>> sim_distance(recommendations.critics,'Lisa Rose','Gene Seymour')
+
+0.14814814814814814
+>>> 
+
